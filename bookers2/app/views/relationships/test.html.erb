@@ -1,0 +1,5 @@
+ if logged_in? && current_user != user
+   if current_user.following?(user)
+    = button_to 'フォロー解除', relationship_path(current_user.relationships.find_by(follower: user)), method: :delete
+   else
+    = button_to 'フォロー', relationships_path(follower: user)
